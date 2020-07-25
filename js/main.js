@@ -36,3 +36,13 @@ var mySwiper = new Swiper('.swiper-container', {
     }
     
     ibg();
+
+
+    let menuIcon = document.querySelector(".menu-icon");
+    const mobileNav = document.querySelector('.mobile-nav');
+
+menuIcon.onclick = function() {
+    menuIcon.classList.toggle("menu-icon-active");
+    mobileNav.classList.toggle('mobile-nav--active');
+}
+

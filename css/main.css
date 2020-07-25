@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -455,6 +456,96 @@ body {
   font-size: 14px;
   font-weight: 400;
   text-transform: uppercase;
+}
+
+.form input {
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  padding: 18px;
+  padding-left: 40px;
+  width: 281px;
+  height: 46px;
+  background-color: #ffffff;
+  margin-right: 10px;
+}
+
+.form input::-moz-placeholder {
+  font-size: 13px;
+  color: #a9a9a9;
+}
+
+.form input:-ms-input-placeholder {
+  font-size: 13px;
+  color: #a9a9a9;
+}
+
+.form input::-ms-input-placeholder {
+  font-size: 13px;
+  color: #a9a9a9;
+}
+
+.form input::placeholder {
+  font-size: 13px;
+  color: #a9a9a9;
+}
+
+.form__name {
+  position: relative;
+}
+
+.form__name::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 15px;
+  height: 15px;
+  background-image: url("../img/icon-name.png");
+  background-repeat: no-repeat;
+}
+
+.form__email {
+  position: relative;
+}
+
+.form__email::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 15px;
+  height: 15px;
+  background-image: url("../img/icon-email.png");
+  background-repeat: no-repeat;
+}
+
+.form__tel {
+  position: relative;
+}
+
+.form__tel::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 15px;
+  height: 15px;
+  background-image: url("../img/icon-phone.png");
+  background-repeat: no-repeat;
+}
+
+.form__submit {
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  padding: 15px 40px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #ffffff;
+  min-width: 211px;
+  min-height: 46px;
+  background-color: #ffbb42;
 }
 
 /**
@@ -1099,10 +1190,76 @@ button.swiper-pagination-bullet {
   backface-visibility: hidden;
 }
 
+/* --------------- Mobile navigation button ----------- */
+.menu-icon {
+  z-index: 19;
+  position: relative;
+  display: none;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+/* Условие для экранов с шириной от 0 до 1200px */
+@media (max-width: 800px) {
+  .menu-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.menu-icon-line {
+  position: relative;
+  width: 30px;
+  height: 5px;
+  background-color: #000;
+}
+
+.menu-icon-line::before {
+  position: absolute;
+  left: 0;
+  top: -10px;
+  content: '';
+  width: 30px;
+  height: 5px;
+  background-color: #000;
+  transition: transform 0.2s ease-in, top 0.2s linear 0.2s;
+}
+
+.menu-icon-line::after {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  content: '';
+  width: 30px;
+  height: 5px;
+  background-color: #000;
+  transition: transform 0.2s ease-in, top 0.2s linear 0.2s;
+}
+
+.menu-icon.menu-icon-active .menu-icon-line {
+  background-color: transparent;
+}
+
+.menu-icon.menu-icon-active .menu-icon-line::before {
+  transform: rotate(45deg);
+  top: 0;
+  transition: top 0.2s linear, transform 0.2s ease-in 0.2s;
+}
+
+.menu-icon.menu-icon-active .menu-icon-line::after {
+  transform: rotate(-45deg);
+  top: 0;
+  transition: top 0.2s linear, transform 0.2s ease-in 0.2s;
+}
+
+/* Моб навигация */
 .header {
   background-color: #ffffff;
-  padding: 20px 15px;
+  padding: 10px 15px;
   padding-left: 0;
+  position: relative;
 }
 
 .header .container {
@@ -1169,104 +1326,25 @@ button.swiper-pagination-bullet {
 .promo__form {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 1200px) {
+  .promo__form {
+    display: block;
+  }
+  .promo__form div {
+    margin: 0 auto;
+    width: 300px;
+    margin-bottom: 10px;
+  }
 }
 
 .promo__slider {
   position: absolute;
-  top: 0;
-  left: 50%;
+  left: 0;
+  bottom: -50px;
   width: 100%;
-  transform: translate(-50%, 80%);
-}
-
-.form input {
-  border: none;
-  outline: none;
-  border-radius: 2px;
-  padding: 18px;
-  padding-left: 40px;
-  width: 281px;
-  height: 46px;
-  background-color: #ffffff;
-  margin-right: 10px;
-}
-
-.form input::-moz-placeholder {
-  font-size: 13px;
-  color: #a9a9a9;
-}
-
-.form input:-ms-input-placeholder {
-  font-size: 13px;
-  color: #a9a9a9;
-}
-
-.form input::-ms-input-placeholder {
-  font-size: 13px;
-  color: #a9a9a9;
-}
-
-.form input::placeholder {
-  font-size: 13px;
-  color: #a9a9a9;
-}
-
-.form__name {
-  position: relative;
-}
-
-.form__name::before {
-  content: "";
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  width: 15px;
-  height: 15px;
-  background-image: url("../img/icon-name.png");
-  background-repeat: no-repeat;
-}
-
-.form__email {
-  position: relative;
-}
-
-.form__email::before {
-  content: "";
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  width: 15px;
-  height: 15px;
-  background-image: url("../img/icon-email.png");
-  background-repeat: no-repeat;
-}
-
-.form__tel {
-  position: relative;
-}
-
-.form__tel::before {
-  content: "";
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  width: 15px;
-  height: 15px;
-  background-image: url("../img/icon-phone.png");
-  background-repeat: no-repeat;
-}
-
-.form__submit {
-  border: none;
-  outline: none;
-  border-radius: 2px;
-  padding: 15px 40px;
-  text-align: center;
-  text-transform: uppercase;
-  color: #ffffff;
-  min-width: 211px;
-  min-height: 46px;
-  background-color: #ffbb42;
 }
 
 .promo-slider-wrapper {
@@ -1637,8 +1715,7 @@ button.swiper-pagination-bullet {
 
 .comment__author {
   display: block;
-  text-align: center;
-  padding-left: 50px;
+  padding-left: 150px;
   font-style: normal;
   color: #f6772c;
   font-family: "Lato", sans-serif;
@@ -1648,6 +1725,131 @@ button.swiper-pagination-bullet {
 
 .comment__author span {
   color: #99a9ae;
+}
+
+.subscribe {
+  padding-top: 150px;
+  padding-right: 30px;
+  padding-left: 30px;
+  padding-bottom: 50px;
+  background-color: #fff;
+}
+
+.subscribe__form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.subscribe__form input {
+  border: 1px solid #cbcbcb;
+}
+
+.subtitle {
+  margin-bottom: 35px;
+}
+
+.adress {
+  padding-top: 40px;
+  text-align: center;
+  background-image: url("../img/map.png");
+  background-repeat: no-repeat;
+  min-height: 550px;
+}
+
+.adress__text {
+  position: relative;
+  margin: 0 auto;
+  padding: 65px;
+  width: 280px;
+  border-radius: 50%;
+  background-color: #394b50;
+  border: 3px solid #ffffff;
+}
+
+.adress__text::before {
+  content: "";
+  position: absolute;
+  bottom: -55px;
+  width: 50px;
+  height: 50px;
+  transform: translateX(-40%);
+  background-image: url("../img/logo.png");
+  background-repeat: no-repeat;
+}
+
+.adress__text::after {
+  content: "";
+  position: absolute;
+  bottom: -13px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 14px 7px 0 7px;
+  border-color: #394b50 transparent transparent transparent;
+}
+
+.adress__text b {
+  display: block;
+  margin-bottom: 10px;
+  color: #ffffff;
+  font-family: "Lato", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.adress__text p {
+  margin: 0;
+}
+
+.adress__email {
+  color: #ffbb42;
+}
+
+.footer {
+  border-top: 1px solid #e3e7ec;
+  padding: 30px 0;
+  background-color: #fff;
+}
+
+.footer__list {
+  justify-content: center;
+}
+
+.footer__phone {
+  text-decoration: none;
+  /* Style for "+987 9976" */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  color: #394b50;
+  font-family: "Lato", sans-serif;
+  font-size: 23px;
+  line-height: 24.15px;
+}
+
+.footer__phone::before {
+  content: "";
+  margin-right: 5px;
+  width: 16px;
+  height: 17px;
+  background-image: url("../img/phone-icon.png");
+  background-repeat: no-repeat;
+}
+
+.socials-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+.socials-list__item {
+  margin-right: 15px;
 }
 
 /*# sourceMappingURL=main.css.map */
